@@ -43,7 +43,9 @@ module.exports = {
     minimizer: [new TerserPlugin(), new CssMinimizerWebpack()],
   },
   plugins: [
-    new CopyWebpackPlugin({ patterns: ["src/index.html"] }),
+    new CopyWebpackPlugin({
+      patterns: ["src/index.html", { from: "public", to: "assets" }],
+    }),
     new MiniCssExtractPlugin({
       filename: "assets/bundle.css",
     }),

@@ -1,11 +1,5 @@
-@media screen and (max-width: 594px) {
-  .input-group {
-    flex-direction: column;
-  }
-}
-
 #operands-form {
-  max-width: 36rem;
+  max-width: 35rem;
   margin: auto;
 }
 
@@ -13,3 +7,15 @@
   width: 15rem;
 }
 
+@media screen and (max-width: 594px) {
+  .input-group {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-height: 500px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+}
