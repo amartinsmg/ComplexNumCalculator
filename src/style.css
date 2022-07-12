@@ -4,11 +4,12 @@
   }
 }
 
-#form {
+#operands-form {
   max-width: 36rem;
   margin: auto;
 }
 
-/* @media screen and (min-width: 768px) {
+#opcode {
+  width: 15rem;
+}
 
-} */
