@@ -7,7 +7,7 @@ function arraysCmp(arr1, arr2) {
 }
 
 void (async function () {
-  const WasmBuffer = readFileSync(__dirname + "/../build/program.wasm"),
+  const WasmBuffer = readFileSync(__dirname + "/../build/assets/program.wasm"),
     WasmModule = await WebAssembly.instantiate(WasmBuffer),
     { cadd, csub, cmul, cdiv, memory } = WasmModule.instance.exports,
     getArray = (byteOffset) => {
