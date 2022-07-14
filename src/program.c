@@ -1,5 +1,7 @@
 #include <complex.h>
 
+// Addition of complex numbers x and y
+
 double *cadd(double x_real, double x_imag, double y_real, double y_imag)
 {
   double *result;
@@ -10,6 +12,8 @@ double *cadd(double x_real, double x_imag, double y_real, double y_imag)
   result[1] = cimag(z);
   return result;
 }
+
+// Subtraction of complex numbers x and y
 
 double *csub(double x_real, double x_imag, double y_real, double y_imag)
 {
@@ -22,6 +26,8 @@ double *csub(double x_real, double x_imag, double y_real, double y_imag)
   return result;
 }
 
+// Multiplication of complex numbers x and y
+
 double *cmul(double x_real, double x_imag, double y_real, double y_imag)
 {
   double *result;
@@ -32,6 +38,8 @@ double *cmul(double x_real, double x_imag, double y_real, double y_imag)
   result[1] = cimag(z);
   return result;
 }
+
+// Division of complex numbers x and y
 
 double *cdiv(double x_real, double x_imag, double y_real, double y_imag)
 {

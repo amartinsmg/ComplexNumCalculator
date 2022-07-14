@@ -1,4 +1,4 @@
-import "./style.css";
+import "./main.css";
 
 type cnumFunction = (
   x_real: number,
@@ -17,15 +17,23 @@ interface ProgramWasm {
 
 declare const MathJax: any;
 
+// This function formats the numeric result returned by the module to a complex number form.
+
 function formatComplex(creal: number, cimag: number): string {
+  const formatNum = (n: number) => n.toFixed(6).replace(/\.?0+$/, ""),
+    Real = formatNum(creal),
+    Imag = cimag === 1 ? "" : cimag == -1 ? "-" : formatNum(cimag);
   if (creal === 0) {
-    return cimag === 0 ? "0" : `${cimag}i`;
+    return cimag === 0 ? "0" : `${Imag}i`;
   } else {
-    if (cimag === 0) return `${creal}`;
-    else if (cimag > 0) return `${creal} + ${cimag}i`;
-    else return `${creal} ${cimag}i`;
+    if (cimag === 0) return `${Real}`;
+    else if (cimag > 0) return `${Real} + ${Imag}i`;
+    else return `${Real} ${Imag}i`;
   }
 }
+
+// This function is called when the page is loaded and is responsible for loading
+// and instantiating the wasm module and calling its functions when the form is submitted.
 
 async function main(): Promise<void> {
   const WasmInstance = await WebAssembly.instantiateStreaming(
@@ -36,6 +44,7 @@ async function main(): Promise<void> {
     Inputs = Array.from(
       document.querySelectorAll(".operand-input")
     ) as HTMLInputElement[],
+    OpSelect = document.querySelector("#opcode") as HTMLSelectElement,
     OutputEl = document.querySelector("#output-data") as HTMLOutputElement,
     { memory, cadd, csub, cmul, cdiv }: ProgramWasm = WasmInstance.instance
       .exports as any,
@@ -60,14 +69,13 @@ async function main(): Promise<void> {
   Form.addEventListener("submit", (e) => {
     e.preventDefault();
     OutputEl.innerHTML = "";
-    const Data = new FormData(Form),
-      Operands = Inputs.map((el) => parseFloat(el.value)) as [
+    const Operands = Inputs.map((el) => parseFloat(el.value)) as [
         number,
         number,
         number,
         number
       ],
-      OPCODE = (Data.get("operation") as FormDataEntryValue).toString();
+      OPCODE = OpSelect.value;
     let result: number;
     switch (OPCODE) {
       case "add":
