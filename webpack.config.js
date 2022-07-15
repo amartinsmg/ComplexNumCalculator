@@ -1,5 +1,5 @@
 const CssMinimizerWebpack = require("css-minimizer-webpack-plugin"),
-  CopyWebpackPlugin = require("copy-webpack-plugin"),
+  HtmlWebpackPlugin = require("html-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
   path = require("path"),
   TerserPlugin = require("terser-webpack-plugin");
@@ -43,8 +43,8 @@ module.exports = {
     minimizer: [new TerserPlugin(), new CssMinimizerWebpack()],
   },
   plugins: [
-    new CopyWebpackPlugin({
-      patterns: ["src/index.html", { from: "public", to: "assets" }],
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
     }),
     new MiniCssExtractPlugin({
       filename: "assets/bundle.css",
