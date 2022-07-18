@@ -7,13 +7,13 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
-      - uses: lovasoa/setup-emscripten@master
+          node-version: latest
+      - uses: mymindstorm/setup-emsdk@v11
       - name: Build web-app
         run: |
           npm ci
