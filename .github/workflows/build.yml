@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 'current'
+          node-version: '16.x'
       - uses: lovasoa/setup-emscripten@master
       - name: Build web-app
         run: |
