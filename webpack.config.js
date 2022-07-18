@@ -9,6 +9,7 @@ module.exports = {
   output: {
     filename: "assets/bundle.js",
     path: path.resolve(__dirname, "build"),
+    assetModuleFilename: 'assets/[hash][ext]',
   },
   mode: "production",
   devServer: {
@@ -21,17 +22,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.ts$/i,
         use: ["babel-loader", "ts-loader"],
         exclude: /node_modules/,
       },
       {
-        test: /\.js$/,
+        test: /\.js$/i,
         use: "babel-loader",
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
