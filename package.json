@@ -9,8 +9,9 @@
   "scripts": {
     "build": "npm run build:ts && npm run build:wasm",
     "build:ts": "webpack",
-    "build:wasm": "bash compile.sh",
-    "dev": "npm run build:wasm && webpack serve",
+    "build:wasm": "make",
+    "dev": "npm run build:wasm && npm run dev:server",
+    "dev:server": "webpack serve",
     "test": "make test"
   },
   "devDependencies": {

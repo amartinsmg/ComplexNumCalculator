@@ -1,28 +1,29 @@
-all: wat
-	echo program.wat generated successfully
+all: compile
+	echo program.wasm generated successfully
 
 # Create directories debug and intermediate if there are no they
 
 dir: 
-	[ -d debug ] || mkdir debug && [ -d intermediate ] || mkdir intermediate
+	([ -d debug ] || mkdir debug) && ([ -d build ] || mkdir build) && ([ -d build/assets ] || mkdir build/assets)
+
 
 # Compile C source code to bynary code in WebAssembly format
 
 compile: dir
 	emcc -sWASM=1 -sEXPORTED_RUNTIME_METHODS='["cwrap"]' -sEXPORTED_FUNCTIONS=_cadd,_csub,_cmul,_cdiv \
-	-Wl,--no-entry -o debug/program.wasm src/program.c
+	-Wl,--no-entry -o build/assets/program.wasm src/program.c
 
-# Generate WebAssembly text format
+# Generate WebAssembly text format for debugging
 
 wat: compile
-	npx wasm2wat -o intermediate/program.wat debug/program.wasm
+	npx wasm2wat -o debug/program.wat build/assets/program.wasm
 
-# Convert WebAssembly text format to birary code
+# Generate debug files
 
-wasm: wat
-	bash compile.sh
+debug: wat
+	echo program.wat generated successfully
 
 # Run test file
 
-test: wasm
+test: compile
 	node test/test.js
