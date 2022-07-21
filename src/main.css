@@ -1,11 +1,19 @@
+body {
+  padding: 0 5vw;
+}
+
 #operands-form {
   max-width: 36rem;
   margin: auto;
 }
 
-@media screen and (max-width: 594px) {
+@media screen and (max-width: 640px) {
   .input-group {
     flex-direction: column;
+  }
+  .input-group-text {
+    border: none;
+    background: transparent;
   }
 }
 
