@@ -1,11 +1,9 @@
 all: compile
-	echo program.wasm generated successfully
 
 # Create directories debug and intermediate if there are no they
 
 dir: 
 	([ -d debug ] || mkdir debug) && ([ -d build ] || mkdir build) && ([ -d build/assets ] || mkdir build/assets)
-
 
 # Compile C source code to bynary code in WebAssembly format
 
@@ -26,4 +24,4 @@ debug: wat
 # Run test file
 
 test: compile
-	node test/test.js
+	node src/test/main.js
