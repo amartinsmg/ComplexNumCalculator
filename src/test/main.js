@@ -1,3 +1,4 @@
+const assert = require("assert");
 const { readFileSync } = require("fs");
 
 function arraysCmp(arr1, arr2) {
@@ -7,7 +8,9 @@ function arraysCmp(arr1, arr2) {
 }
 
 void (async function () {
-  const WasmBuffer = readFileSync(__dirname + "/../../build/assets/program.wasm"),
+  const WasmBuffer = readFileSync(
+      __dirname + "/../../build/assets/program.wasm"
+    ),
     WasmModule = await WebAssembly.instantiate(WasmBuffer),
     { cadd, csub, cmul, cdiv, memory } = WasmModule.instance.exports,
     getArray = (byteOffset) => {
@@ -16,11 +19,10 @@ void (async function () {
       return Arr;
     };
 
-  if (
-    arraysCmp(getArray(cadd(2, 3, 5, -1)), [7, 2]) &&
-    arraysCmp(getArray(csub(2, 3, 5, -1)), [-3, 4]) &&
-    arraysCmp(getArray(cmul(2, 3, 5, -1)), [13, 13]) &&
-    arraysCmp(getArray(cdiv(2, 3, 5, -1)), [7 / 26, 17 / 26])
-  )
-    console.log("Passed all tests successfully\nRespect+ 😎");
+  assert.ok(arraysCmp(getArray(cadd(2, 3, 5, -1)), [7, 2]));
+  assert.ok(arraysCmp(getArray(csub(2, 3, 5, -1)), [-3, 4]));
+  assert.ok(arraysCmp(getArray(cmul(2, 3, 5, -1)), [13, 13]));
+  assert.ok(arraysCmp(getArray(cdiv(2, 3, 5, -1)), [7 / 26, 17 / 26]));
+  console.log("Passed all tests successfully\nRespect+ 😎");
+
 })();
