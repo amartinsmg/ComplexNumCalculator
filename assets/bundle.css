@@ -1,1 +1,1 @@
-body{padding:0 5vw}#operands-form{margin:auto;max-width:36rem}@media screen and (max-width:640px){.input-group{flex-direction:column}.input-group-text{background:transparent;border:none}}@media screen and (min-height:600px){footer{bottom:0;position:fixed}}
+body{padding:0 5vw}#operands-form{margin:auto;max-width:36rem}.input-group-text{background:transparent;border:none}@media screen and (max-width:640px){.input-group{flex-direction:column}}@media screen and (min-height:600px){footer{bottom:0;position:fixed}}
