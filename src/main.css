@@ -7,13 +7,14 @@ body {
   margin: auto;
 }
 
+.input-group-text {
+  border: none;
+  background: transparent;
+}
+
 @media screen and (max-width: 640px) {
   .input-group {
     flex-direction: column;
-  }
-  .input-group-text {
-    border: none;
-    background: transparent;
   }
 }
 
