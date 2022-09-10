@@ -1,10 +1,11 @@
 #include <complex.h>
+#include <stdlib.h>
 
 // Addition of complex numbers x and y
 
 double *cadd(double x_real, double x_imag, double y_real, double y_imag)
 {
-  double *result;
+  double *result = (double *)malloc(sizeof(*result) * 2);
   double complex x = x_real + x_imag * I,
                  y = y_real + y_imag * I,
                  z = x + y;
@@ -17,7 +18,7 @@ double *cadd(double x_real, double x_imag, double y_real, double y_imag)
 
 double *csub(double x_real, double x_imag, double y_real, double y_imag)
 {
-  double *result;
+  double *result = (double *)malloc(sizeof(*result) * 2);
   double complex x = x_real + x_imag * I,
                  y = y_real + y_imag * I,
                  z = x - y;
@@ -30,7 +31,7 @@ double *csub(double x_real, double x_imag, double y_real, double y_imag)
 
 double *cmul(double x_real, double x_imag, double y_real, double y_imag)
 {
-  double *result;
+  double *result = (double *)malloc(sizeof(*result) * 2);
   double complex x = x_real + x_imag * I,
                  y = y_real + y_imag * I,
                  z = x * y;
@@ -43,7 +44,7 @@ double *cmul(double x_real, double x_imag, double y_real, double y_imag)
 
 double *cdiv(double x_real, double x_imag, double y_real, double y_imag)
 {
-  double *result;
+  double *result = (double *)malloc(sizeof(*result) * 2);
   double complex x = x_real + x_imag * I,
                  y = y_real + y_imag * I,
                  z = x / y;
