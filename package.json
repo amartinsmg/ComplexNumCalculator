@@ -12,10 +12,9 @@
     "build:wasm": "make",
     "dev": "npm run build:wasm && npm run dev:server",
     "dev:server": "webpack serve",
-    "test": "make test"
+    "test": "node src/test/main.js"
   },
   "devDependencies": {
-    "@babel/cli": "^7.18.6",
     "@babel/core": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
     "babel-loader": "^8.2.5",
