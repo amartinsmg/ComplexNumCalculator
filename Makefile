@@ -3,7 +3,7 @@ all: compile
 # Create directories debug and intermediate if there are no they
 
 dir: 
-	([ -d debug ] || mkdir debug) && ([ -d build ] || mkdir build) && ([ -d build/assets ] || mkdir build/assets)
+	([ -d debug ] || mkdir debug ) && ([ -d build ] || mkdir build ) && ([ -d build/assets ] || mkdir build/assets )
 
 # Compile C source code to bynary code in WebAssembly format
 
@@ -20,8 +20,3 @@ wat: compile
 
 debug: wat
 	echo program.wat generated successfully
-
-# Run test file
-
-test: compile
-	node src/test/main.js
