@@ -9,7 +9,7 @@ This is a personal project for a Web Complex Numbers Calculator.
 In this project, user inputs the operators and chooses the operation between addition, subtraction, multiplication, and division. The page uses a WebAssembly module to calculate the operation and Typescript transpiled code to format and display the result to the user.
 
 The page uses Bootstrap Dark 5 for styling and Mathjax library to convert the result to svg format.
-To build this project, clone this repository and run this commands:
+To build this project, clone this repository and run these commands:
 
 ```sh
 npm install
