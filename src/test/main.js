@@ -1,5 +1,5 @@
-const assert = require("assert");
-const { readFileSync } = require("fs");
+const { ok: assert } = require("assert"),
+  { readFileSync } = require("fs");
 
 function arraysCmp(arr1, arr2) {
   const str1 = JSON.stringify(arr1),
@@ -19,10 +19,9 @@ void (async function () {
       return Arr;
     };
 
-  assert.ok(arraysCmp(getArray(cadd(2, 3, 5, -1)), [7, 2]));
-  assert.ok(arraysCmp(getArray(csub(2, 3, 5, -1)), [-3, 4]));
-  assert.ok(arraysCmp(getArray(cmul(2, 3, 5, -1)), [13, 13]));
-  assert.ok(arraysCmp(getArray(cdiv(2, 3, 5, -1)), [7 / 26, 17 / 26]));
-  console.log("Passed all tests successfully\nRespect+ 😎");
-
+  assert(arraysCmp(getArray(cadd(2, 3, 5, -1)), [7, 2]));
+  assert(arraysCmp(getArray(csub(2, 3, 5, -1)), [-3, 4]));
+  assert(arraysCmp(getArray(cmul(2, 3, 5, -1)), [13, 13]));
+  assert(arraysCmp(getArray(cdiv(2, 3, 5, -1)), [7 / 26, 17 / 26]));
+  console.log("Passed all tests successfully");
 })();
