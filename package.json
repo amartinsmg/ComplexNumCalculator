@@ -31,9 +31,6 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.3"
   },
-  "keywords": [
-    "math"
-  ],
   "author": "amartinsmg",
   "license": "MIT",
   "bugs": {
