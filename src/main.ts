@@ -1,3 +1,13 @@
+/**
+  This script imports the functions cadd, csub, cmul, and cdiv from a WebAssembly module. Each function takes four
+    parameters: x_real, x_imag, y_real, and y_imag, which are the real and imaginary parts of two complex numbers.
+    The functions return a pointer to an array of size 2 containing the real and imaginary parts of the result.
+  The module also exports a function named formatComplex that takes the real and imaginary parts of a complex number
+    as input and returns a string with a formatted representation of the complex number.
+  The script initializes the UI elements and event listeners. When the user submits the form, the script calls the
+    appropriate function based on the selected operation and displays the result on the page.
+ */
+
 import "./main.css";
 
 type cnumFunction = (
@@ -17,7 +27,12 @@ interface ProgramWasm {
 
 declare const MathJax: any;
 
-// This function formats the numeric result returned by the module to a complex number form.
+/**
+  Formats a complex number with the given real and imaginary parts as a string.
+  @param creal - The real part of the complex number.
+  @param cimag - The imaginary part of the complex number.
+  @return - The formatted string representation of the complex number.
+*/
 
 function formatComplex(creal: number, cimag: number): string {
   const formatNum = (n: number) => n.toFixed(6).replace(/\.?0+$/, ""),
@@ -32,12 +47,13 @@ function formatComplex(creal: number, cimag: number): string {
   }
 }
 
-// This function is called when the page is loaded and is responsible for loading
-// and instantiating the wasm module and calling its functions when the form is submitted.
+/**
+  Initializes the UI elements and event listeners. When the user submits the form, the appropriate
+  function based on the selected operation is called and the result is displayed on the page.
+*/
 
 async function main(): Promise<void> {
   const Form = document.querySelector("#operands-form") as HTMLFormElement,
-    //@ts-ignore
     Inputs = Array.from(
       document.querySelectorAll(".operand-input")
     ) as HTMLInputElement[],
@@ -52,7 +68,6 @@ async function main(): Promise<void> {
         .exports as any,
       getArr = (byteOffset: number): [number, number] => {
         const FloatArr = new Float64Array(memory.buffer, byteOffset, 2),
-          //@ts-ignore
           Arr = Array.from<number>(FloatArr) as [number, number];
         return Arr;
       };
