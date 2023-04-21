@@ -18,7 +18,8 @@ function arraysCmp(arr1, arr2) {
   This code imports four functions: cadd, csub, cmul, and cdiv. It reads a WebAssembly binary file containing these functions and their implementation
     from the file system, instantiates the module, and runs some tests to assert that the functions produce expected results. The arraysCmp function is
     used to compare the expected output with the actual output of the functions.
-  The tests pass if all four assertions succeed. If any of the assertions fail, an error will be thrown. Finally, a success message is logged to the console.
+  The tests pass if all four assertions succeed. If any of the assertions fail, an error will be thrown.
+  Finally, a success message is logged to the console.
  */
 
 void (async function () {
