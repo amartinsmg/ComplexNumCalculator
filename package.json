@@ -1,10 +1,7 @@
 {
-  "name": "complexcalculator",
+  "name": "complex_numbers_calculator",
   "version": "1.1.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amartinsmg/ComplexNumCalculator.git"
-  },
+  "repository": "https://github.com/amartinsmg/ComplexNumCalculator.git",
   "main": "src/main.ts",
   "scripts": {
     "build": "npm run build:ts && npm run build:wasm",
@@ -32,8 +29,5 @@
     "webpack-dev-server": "^4.9.3"
   },
   "author": "amartinsmg",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/amartinsmg/CenturyCalculator/issues"
-  }
+  "license": "MIT"
 }
