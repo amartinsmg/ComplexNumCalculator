@@ -1,11 +1,7 @@
 /**
-  This script imports the functions cadd, csub, cmul, and cdiv from a WebAssembly module. Each function takes four
-    parameters: x_real, x_imag, y_real, and y_imag, which are the real and imaginary parts of two complex numbers.
-    The functions return a pointer to an array of size 2 containing the real and imaginary parts of the result.
-  The module also exports a function named formatComplex that takes the real and imaginary parts of a complex number
-    as input and returns a string with a formatted representation of the complex number.
-  The script initializes the UI elements and event listeners. When the user submits the form, the script calls the
-    appropriate function based on the selected operation and displays the result on the page.
+  This script imports the functions cadd, csub, cmul, and cdiv from a WebAssembly module. Each function takes four parameters: x_real, x_imag,
+    y_real, and y_imag, which are the real and imaginary parts of two complex numbers. The functions return a pointer to an array of size 2
+    containing the real and imaginary parts of the result.
  */
 
 import "./main.css";
@@ -83,6 +79,10 @@ async function main(): Promise<void> {
       });
     });
 
+    /**
+      This function handles the form submit event.
+      @param e - The event object.
+    */
     Form.addEventListener("submit", (e) => {
       e.preventDefault();
       try {
@@ -123,5 +123,7 @@ async function main(): Promise<void> {
     OutputEl.textContent = err instanceof Error ? err.message : String(err);
   }
 }
+
+// Execute the main function on page load.
 
 window.addEventListener("load", main);
