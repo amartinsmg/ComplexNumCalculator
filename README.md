@@ -20,7 +20,7 @@ To build and run the project, follow these steps:
 After the build process is complete, you can open the index.html file located in the 'dist' directory in your web browser to use the calculator.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE.md) file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
 ## Contributing
 Contributions are welcome! If you find a bug or have a feature request, please open an issue or submit a pull request.
